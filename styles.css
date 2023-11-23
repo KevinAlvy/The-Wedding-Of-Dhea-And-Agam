@@ -1,0 +1,869 @@
+body {
+    margin: 0;
+    font-family: 'Bodoni Moda', serif;
+    background: url('bg.jpg')  center/cover no-repeat fixed;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Great+Vibes&family=Sulphur+Point:wght@700&display=swap');
+
+.overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('MAKEUP_2023110618011962.jpg') center/cover no-repeat;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 0px;
+    opacity: 1;
+    transition: opacity 2.5s ease;
+    z-index: 2;
+}
+
+.overlay h1 {
+    font-size: 28px;
+    line-height: 1;
+    font-family: 'Sulphur Point', sans-serif;
+    font-weight: lighter;
+}
+
+.overlay-content h2 {
+    font-size: 30px;
+    line-height: 1.5;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.overlay-content h2 span {
+    display: inline-block;
+    margin-right: -0.25em;
+}
+
+.overlay h3 {
+    font-size: 12px;
+    line-height: 0;
+    font-family: 'Edu TAS Beginner', cursive;
+}
+
+.overlay h4 {
+    font-size: 15px; /* Ukuran font untuk h4 */
+    margin-top: 5px;
+}
+
+.overlay-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Opasitas diatur di sini */
+    border-radius: 0px;
+}
+
+.close-btn {
+    font-family: 'Edu TAS Beginner', cursive;
+    min-width: 130px;
+    height: 40px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 40px;
+    z-index: 0;
+    background: #cc444400;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.close-btn:hover {
+    color: #232222;
+}
+
+.close-btn:hover::after{
+    height: 100%;
+}
+
+.close-btn::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background: #4c4949; 
+}
+
+.additional-content {
+    display: none;
+}
+
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+    height: 90vh;
+}
+
+.mySlides {
+    transition: transform 2s ease, background-color 1s ease; /* Menyesuaikan transisi untuk efek zoom in, zoom out, dan transparansi */
+    background-color: rgba(255, 255, 255, 0); /* Membuat latar belakang elemen transparan */
+}
+
+.mySlides.active {
+    background-color: rgba(255, 255, 255, 1); /* Mengubah transparansi menjadi opak saat elemen aktif */
+}
+
+.overlay-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Warna latar belakang gelap */
+    z-index: 1; /* Letakkan di belakang caption container */
+}
+
+.caption-container {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    bottom: 15%;
+    z-index: 2; /* Letakkan di atas lapisan gelap */
+}
+
+
+.caption-container h1 {
+    font-size: 25px;
+    font-family: 'Sulphur Point', sans-serif;
+    line-height: 0;
+}
+
+.caption-container h2 {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.caption-container h3 {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.caption-container h4 {
+    font-size: 19px;
+    font-family: 'Edu TAS Beginner', cursive;
+    line-height: 0.5;
+}
+
+img {
+    width: 100%;
+}
+
+#timer {
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer span {
+    margin: 0 28px;
+}
+
+@keyframes waveAnimation1 {
+    0% {
+        transform: translateX(-69);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes waveAnimation2 {
+    0% {
+        transform: translateX(-60%);
+    }
+    100% {
+        transform: translateX(95%);
+    }
+}
+
+@keyframes waveAnimation3 {
+    0% {
+        transform: translateX(-75%);
+    }
+    100% {
+        transform: translateX(100);
+    }
+}
+
+@keyframes waveAnimation4 {
+    0% {
+        transform: translateX(-85%);
+    }
+    100% {
+        transform: translateX(100);
+    }
+}
+
+.wave-container {
+    width: 100%;
+    z-index: 3;
+    height: 11%;
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+}
+
+.wave-path {
+    fill: rgb#101214;
+    fill-opacity: 1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+.wave-path1 {
+    animation-name: waveAnimation1;
+}
+
+.wave-path2 {
+    animation-name: waveAnimation2;
+}
+
+.wave-path3 {
+    animation-name: waveAnimation3;
+}
+
+.wave-path4 {
+    animation-name: waveAnimation4;
+}
+
+.kain {
+    background: url('Welcom-bg.jpg')  center/cover no-repeat;
+    border-bottom-left-radius: 20% 5%;
+    border-bottom-right-radius: 20% 5%;
+}
+
+.Welcom {
+    max-width: 100%;
+    width: 60%;
+    max-height: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; /* Mengatur z-index menjadi 1 */
+}
+
+.Welcom img {
+    object-fit: cover;
+    margin-top: 70%;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(100%);
+    animation: floatAnimation 2s infinite ease-in-out;
+}
+
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.welcom-container {
+    padding: 15px;
+    color: #fff;
+    margin: 10px auto;
+    max-width: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    animation: slideUpDown 2s ease infinite alternate; /* Tambahkan animasi naik turun */
+}
+
+@keyframes slideUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+.welcom-container {
+    padding: 15px; /* Padding di sekitar teks */
+    margin: 10px auto; /* Margin di luar kotak */
+    max-width: 100%; /* Lebar maksimum kotak */
+    width: 90%; /* Lebar kotak secara keseluruhan */
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    opacity: 0; /* Dimulai dari tidak terlihat */
+    transform: scale(0.8); /* Dimulai dari skala yang lebih kecil */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Efek transisi untuk opacity dan transformasi */
+}
+
+.welcom-container.visible {
+    opacity: 1; /* Munculkan teks saat kelas "visible" ditambahkan */
+    transform: scale(1); /* Skala normal saat kelas "visible" ditambahkan */
+}
+
+.sambutan {
+    padding: 15px;
+    color: #ffffff;
+    margin: 10px auto;
+    max-width: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.cewe, .cowo {
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 85%;
+    text-align: center;
+    border: 2px solid #ffffff09;
+    color: #fff;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 10);
+    background: #4c494942;
+    border-radius: 40px;
+    margin-left: auto; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.cewe img {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+}
+
+.cewe h2{
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+}
+
+.cewe h3{
+  font-size: 15px;
+}
+
+.cowo h2{
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+}
+
+.cowo h3{
+  font-size: 15px;
+}
+
+.cowo img {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
+}
+
+.dan img {
+    max-width: 100%;
+    width: 10%;
+    display: block; /* Menjadikan elemen sebagai blok, agar margin auto berfungsi */
+    margin-left: auto; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */
+}
+
+.penutup {
+    padding: 10px;
+    color: #ffffff;
+    margin: 10px auto;
+    max-width: 100%;
+    width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.acara{
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 5%;
+}
+
+.acara h2{
+    font-size: 12px;
+}
+
+.acara img {
+    max-width: 100%;
+    width: 30%;
+    display: block; /* Menjadikan elemen sebagai blok, agar margin auto berfungsi */
+    margin-left: auto; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */
+    margin-top: 10%;
+    filter: invert();
+}
+
+.tanggal {
+    text-align: center;
+    background: #101214;
+    color: #ffffff;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tanggal h2{
+    font-size: 16px;
+}
+
+.tanggal h3{
+  font-size: 14px;
+}
+
+.maps {
+    position: relative;
+    top: 10px;
+}
+
+.createReminderBtn {
+    font-family: 'Edu TAS Beginner', cursive;
+    min-width: 130px;
+    height: 40px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 40px;
+    z-index: 0;
+    background: #cc444400;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.createReminderBtn:hover {
+    color: #232222;
+}
+
+.createReminderBtn:hover::after{
+    height: 100%;
+}
+
+.createReminderBtn::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background: #4c4949; 
+}
+
+.album {
+    padding-top: 10%;
+    color: #fff;
+    text-align: center;
+}
+
+.album img {
+    max-width: 100%;
+    width: 40%;
+    display: block; /* Menjadikan elemen sebagai blok, agar margin auto berfungsi */
+    margin-left: auto; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  div.gallery {
+    border: 0px solid #ccc;
+    overflow: hidden;
+    border-radius: 5%;
+  }
+  
+  div.gallery:hover {
+    border: 5px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+    animation: fadeInOut 6s infinite; /* Ganti nilai 4s sesuai kebutuhanmu */
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 50%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }  
+  
+  .chat img{
+    margin-top: 15%;
+    margin-left: 25%; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */
+    width: 40%;
+    height: 100%;
+    filter: grayscale(100%);
+    animation: floatAnimation 2s infinite ease-in-out;
+  }
+
+  .chat h1{
+    text-align: center;
+    font-family: 'Cinzel Decorative', serif;
+    color: rgb(239, 234, 234);
+    margin: 0 auto;
+  }
+
+  .album h1{
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Cinzel Decorative', serif;
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+  }
+
+  .album h2{
+    font-size: 12px;
+    text-align: center;
+    font-family: 'Cinzel Decorative', serif;
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+    padding-top: 10%;
+  }
+
+  .box-62 {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+
+  #comment-section {
+    max-width: 80%;
+    margin: 0 auto;
+    color: #ffffff;
+    background-color: #101214;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 7%;
+    padding-right: 5%;
+    border-radius: 10px;
+}
+
+#comments {
+    list-style-type: circle;
+    padding: 0;
+    color: #ffffff;
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+#comment-form {
+    display: grid;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#comment-form label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#comment-form textarea {
+    resize: vertical;
+}
+
+  .akhir{
+    max-width: 100%;
+    filter: invert();
+    width: 40%;
+    display: block; /* Menjadikan elemen sebagai blok, agar margin auto berfungsi */
+    margin-top: 10%;
+    margin-left: auto; /* Set margin left menjadi otomatis */
+    margin-right: auto; /* Set margin right menjadi otomatis */    
+  }
+
+  .card {
+    background-color: #00000065;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5%;
+    margin-top: 10%;
+  }
+  
+  .section {
+    margin-top: 20px;
+  }
+  
+  .card h2 {
+    color: #fff;
+  }
+
+  .section h3 {
+    color:  rgb(255, 255, 255);
+    font-size: 12px;
+  }
+  
+  .section p {
+    color: #ffffff;
+    position: relative;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff89;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+  
+  .button-85 {
+    margin-top: 5%;
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-85:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+  .card img {
+    max-width: 100%;
+    width: 20%;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  #navbar {
+    background-color: #33333300;
+    display: flex; /* Change to flex */
+    flex-direction: column; /* Set flex direction to column */
+    width: 12%; /* Set width to 5% */
+    position: fixed; /* Set position to fixed */
+    top: 50%;
+    right: 2%; /* Align to the right */
+    height: 6%; /* Occupy full height */
+    z-index: 20;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  
+  #navbar a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  #navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  #navbar a.active {
+    color: white;
+  }
+  
+  .sticky {
+    position: fixed;
+    width: 12%;
+  }
+
+  .navbarmsc{
+    font-family: 'Edu TAS Beginner', cursive;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 40px;
+    z-index: 0;
+    background: #cc444400;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+  }
+
+  #musicIcon.rotate {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.end {
+  color: #fff;
+  text-align: center;
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+.end p{
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+.end h1{
+  font-size: 18px;
+  font-family: 'Cinzel Decorative', serif;
+  margin: 0 auto;
+}
+
+.end h2{
+  font-size: 36px;
+  margin: 0 auto;
+  margin-right: 50%;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.end h3{
+  font-size: 15px;
+  margin: 0 auto;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.end h4{
+  font-size: 36px;
+  margin: 0 auto;
+  margin-left: 50%;
+  font-family: 'Cinzel Decorative', serif;
+  padding-bottom: 30%;
+}
+
+#grad1 {
+  height: 200px;
+  background-color: #101214; /* For browsers that do not support gradients */
+  background-image: linear-gradient(#101214, #282b9165);
+}

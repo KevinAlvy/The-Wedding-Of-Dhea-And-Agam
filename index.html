@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding Of Dhea & Agam</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"></script>
+
+    
+    <!-- ... Font Google ... -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Caveat&family=Cinzel+Decorative&family=Edu+TAS+Beginner:wght@600&family=Roboto+Mono:wght@600&family=Slabo+27px&family=Sulphur+Point:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="overlay" id="overlay">
+    <div class="overlay-content">
+        <h1>The Wedding Of</h1>
+        <h2>D<span>H</span>EA<br>&<br>AGAM</h2>
+        <h3>Kepada Yth.</h3>
+        <h4><span id="nama"></span></h4>
+        <button class="close-btn" onclick="closeOverlay()">	📖 Buka Undangan</button>
+    </div>
+</div>
+
+<div class="additional-content" id="additionalContent">
+    <div class="slideshow-container">
+      <div id="navbar">
+        <button class="navbarmsc" id="musicControl" onclick="toggleMusic()">
+          <i id="musicIcon" class="fas fa-music"></i>
+        </button>
+      </div>
+        <div class="caption-container">
+                <h1>The Wedding Of</h1>
+                <h2>Dhea & Agam</h2>
+                <h3>Save The Date</h3>
+                <h4>Minggu, 3 Desember 2023</h4>
+                <!-- Countdown Timer -->
+            <div id="timer">
+                <div>
+                    <span id="days">00</span>
+                    <div class="time-label">Hari</div>
+                </div>
+                <div>
+                    <span id="hours">00</span>
+                    <div class="time-label">Jam</div>
+                </div>
+                <div>
+                    <span id="minutes">00</span>
+                    <div class="time-label">Menit</div>
+                </div>
+                <div>
+                    <span id="seconds">00</span>
+                    <div class="time-label">Detik</div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-layer">
+            <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path class="wave-path wave-path1" d="M0,224L60,197.3C120,171,240,117,360,96C480,75,600,85,720,117.3C840,149,960,203,1080,218.7C1200,235,1320,213,1380,202.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                    <path class="wave-path wave-path2" d="M0,224L60,197.3C120,171,240,117,360,96C480,75,600,85,720,117.3C840,149,960,203,1080,218.7C1200,235,1320,213,1380,202.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                    <path class="wave-path wave-path3" d="M0,224L60,197.3C120,171,240,117,360,96C480,75,600,85,720,117.3C840,149,960,203,1080,218.7C1200,235,1320,213,1380,202.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                    <path class="wave-path wave-path4" d="M0,224L60,197.3C120,171,240,117,360,96C480,75,600,85,720,117.3C840,149,960,203,1080,218.7C1200,235,1320,213,1380,202.7L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="mySlides">
+            <img src="scr\img\1699117807359.jpg" alt="Gambar 1">
+        </div>
+
+        <div class="mySlides">
+            <img src="scr\img\1699153417768.jpg" alt="Gambar 2">
+        </div>
+
+        <div class="mySlides">
+            <img src="scr\img\1699154332728.jpg" alt="Gambar 3">
+        </div>
+
+        <div class="mySlides">
+            <img src="scr\img\1699154652111.jpg" alt="Gambar 4">
+        </div>
+
+        <div class="mySlides">
+            <img src="scr\img\IMG-20231105-WA0002.jpg" alt="Gambar 5">
+        </div>
+    </div>
+</div>
+
+<div></div>
+
+<div class="kain">
+    <div class="Welcom">
+        <img src="scr\img\Welcom.png" alt="Gambar 6">
+    </div>
+
+    <div class="welcom-container">
+        <p>“Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.”
+        <br>( QS. Ar- Rum 21 )</p>
+    </div>
+
+    <div class="sambutan">
+        <p>Assalamualaikum Wr.Wb.</p>
+        <p>Dengan segala kerendahan hati,<br>kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri pernikahan kami,</p>
+    </div>
+
+    <div class="cewe">
+        <img src="scr\img\dea.jpg" alt="Gambar 7">
+        <h1>THE BRIDE</h1>
+        <h2>Dhea Febriana</h2>
+        <h3>Putri Pertama dari Bpk. Thamrin & Ibu Murti</h3>
+    </div>
+
+    <div class="dan">
+        <img src="scr\img\png1.png" alt="Gambar 8">
+    </div>
+
+    <div class="cowo">
+        <img src="scr\img\agam.jpg" alt="Gambar 9">
+        <h1>THE GROOM</h1>
+        <h2>Agam Aspudy</h2>
+        <h3>Putra kedua dari Bpk. Jaenal Abidin & Ibu Salmah</h3>
+    </div>
+
+    <div class="penutup">
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami
+            apabila Bapak/Ibu/Saudara/i berkenan hadir
+            untuk memberikan do’a restu kepada kedua mempelai.</h>
+        <p>Atas kehadiran serta doa’a restunya, kami mengucapkan terimakasih.</p>
+        <p>Wassalamu’alaikum Warahmatullahi Wabarakatuh</p>
+    </div>
+
+</div>
+
+<div class="acara">
+    <img src="scr\img\date.png" alt="Gambar 10">
+    <h1>Waktu & Tempat</h1>
+    <h2>Ingatkan saya melalui google calender</h2>
+    <button class="createReminderBtn" onclick="createReminder()">🔔 Atur Pengingat</button>
+</div>
+
+<div class="tanggal" id="animatedDiv">
+    <div class="isi-tanggal">
+        <h1>Akad & Resepsi</h1>
+        <h2>Minggu, 03 Desember 2023</h2>
+        <div>-------------------------------</div>
+        <div>
+        <h3>Karang satria<br>Jln. desa karang satria Rt03 Rw06, No 58. Kec tambun utara, Kab bekasi jawa barat</h3>
+        </div>
+        <div class="maps">
+            <iframe loading="lazy" width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3966.310038737145!2d107.02955847499048!3d-6.222787693765274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTMnMjIuMCJTIDEwN8KwMDEnNTUuNyJF!5e0!3m2!1sid!2sid!4v1700649695329!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+             </iframe>
+        </div>
+    </div>
+</div>
+
+<div class="album">
+    <h1>Galeri</h1>
+    <img src="scr\img\galeri.png" alt="Gambar 11">
+    <h2>Album foto</h2>
+</div>
+
+<div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="scr\img\1699117807359.jpg">
+        <img src="scr\img\1699117807359.jpg" alt="Cinque Terre" width="600" height="400">
+      </a>
+      <div class="desc"></div>
+    </div>
+  </div>
+  
+  
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="scr\img\1699153417768.jpg">
+        <img src="scr\img\1699153417768.jpg" alt="Forest" width="600" height="400">
+      </a>
+      <div class="desc"></div>
+    </div>
+  </div>
+  
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="scr\img\1699154332728.jpg">
+        <img src="scr\img\1699154332728.jpg" alt="Northern Lights" width="600" height="400">
+      </a>
+      <div class="desc"></div>
+    </div>
+  </div>
+  
+  <div class="responsive">
+    <div class="gallery">
+      <a target="_blank" href="scr\img\1699154652111.jpg">
+        <img src="scr\img\1699154652111.jpg" alt="Mountains" width="600" height="400">
+      </a>
+      <div class="desc"></div>
+    </div>
+  </div>
+  
+  <div class="clearfix"></div>
+  
+  <div class="chat">
+    <img src="scr\img\chat.png">
+    <h1>Kirim Pesan</h1>
+  </div>
+
+  <div id="comment-section">
+    <ul id="comments"></ul>
+
+    <h3>Tambahkan Komentar Anda</h3>
+    <form id="comment-form">
+        <label for="name">Nama:</label>
+        <input class="box-62" placeholder="Your name.." type="text" id="name" required>
+
+        <label for="comment">Komentar:</label>
+        <textarea class="box-62" placeholder="Type Here.." id="comment" rows="8" required></textarea>
+
+        <label for="attendance">Konfirmasi Kehadiran:</label>
+        <select class="box-62" id="attendance" required>
+            <option value="Ya, akan hadir">Ya, akan hadir</option>
+            <option value="Maaf, tidak bisa hadir">Maaf, tidak bisa hadir</option>
+            <option value="Mungkin hadir">Mungkin hadir</option>
+        </select>
+
+        <button class="button-85" type="button" id="addCommentBtn">Submit</button>
+    </form>
+</div>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCAe7GwDyvYbAepGVU0dhGM2kdHi6qpOHg",
+        authDomain: "wish-7a8a0.firebaseapp.com",
+        projectId: "wish-7a8a0",
+        storageBucket: "wish-7a8a0.appspot.com",
+        messagingSenderId: "128029269454",
+        appId: "1:128029269454:web:0952059ef8dd63b75e5f9f",
+        measurementId: "G-NQ8VN8ZK7B"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase();
+
+    document.getElementById('addCommentBtn').addEventListener('click', function() {
+        var name = document.getElementById('name').value;
+        var commentText = document.getElementById('comment').value;
+        var attendance = document.getElementById('attendance').value;
+
+        if (name && commentText) {
+            var timestamp = new Date();
+            var formattedTimestamp = timestamp.toLocaleString();
+
+            var commentData = {
+                name: name,
+                comment: commentText,
+                attendance: attendance,
+                timestamp: formattedTimestamp
+            };
+
+            // Simpan data komentar ke Firebase
+            push(ref(database, 'comments'), commentData);
+
+            // Clear the form
+            document.getElementById('name').value = '';
+            document.getElementById('comment').value = '';
+            document.getElementById('attendance').value = 'yes'; // Reset to default value
+        }
+    });
+
+    // Tampilkan komentar dari Firebase saat halaman dimuat
+    onChildAdded(ref(database, 'comments'), function(snapshot) {
+        var commentList = document.getElementById('comments');
+        var comment = snapshot.val();
+        var commentItem = document.createElement('li');
+        commentItem.className = 'comment';
+        commentItem.innerHTML = '<p><strong>Nama:</strong> ' + comment.name + '</p><p><strong>Kehadiran:</strong> ' + comment.attendance + '</p><p><strong>Pesan:</strong> ' + comment.comment + '</p><p><small>' + comment.timestamp + '</small></p>';
+        commentList.appendChild(commentItem);
+    });
+</script>
+
+  <div class="akhir">
+    <img src="scr\img\makasih.png">
+  </div>
+
+  <div class="card">
+    <img src="scr\img\hadiah.png" alt="Hadiah">
+    <h2>Hadiah</h2>
+    <hr>
+    <div class="section">
+      <h3>Bagi yang ingin mengirim tanda suka cita bisa melalui no rekening berikut:</h3>
+      <p>
+        <strong>7391474757 Dhea Febriana (BCA)</strong><br>
+        <button class="button-85" onclick="copyText('7391474757')">Copy</button>
+      </p>
+      <p>
+        <strong>08981278801 Agam Aspudy (DANA)</strong><br>
+        <button class="button-85" onclick="copyText('08981278801')">Copy</button>
+      </p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="scr\img\kado.png" alt="Kado">
+    <h2>Kado</h2>
+    <hr>
+    <div class="section">
+      <h3>Bagi yang ingin mengirim kado bisa mengirimkannya ke alamat berikut:</h3>
+      <p>
+        Jalan Prof.Moh Yamin Gg.Delima RT 004 RW 002 Kel.Duren Jaya Kec.Bekasi Timur <br>( kontrakan Bpk.Samud )<br>
+        <button class="button-85" onclick="copyText('Jalan Prof.Moh Yamin Gg.Delima RT 004 RW 002 Kel.Duren Jaya Kec.Bekasi Timur ( kontrakan Bpk.Samud )')">Copy</button>
+      </p>
+    </div>
+  </div>
+
+  <audio id="backgroundMusic" loop>
+    <source src="scr\music\lagu.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="end">
+    <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kedua mempelai.</p>
+    <br>
+    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+    <br>
+    <br>
+    <br>
+    <p>Atas kehadirannya kami ucapkan,</p>
+    <h1>Terimakasih</h1>
+    <p>Hormat Kami,</p>
+    <br>
+    <br>
+    <h2>Dhea</h2>
+    <h3>&</h3>
+    <h4>Agam</h4>
+  </div>
+
+  <footer>
+    <svg id="" preserveAspectRatio="xMidYMax meet" class="svg-separator sep12" viewBox="0 0 1600 200" style="display: block;width: 100%;height: auto;display: block;width: 100%;height: auto;border: 0;margin-bottom: 0px;" data-height="200"><polygon class="" style="fill: #101214;;" points="-4,24 800,198 1604,24 1604,204 -4,204 "></polygon> <polygon class="" style="opacity: 1;fill: #d1ae6b;" points="-4,0 800,198 1604,0 1604,11.833 800,198 -4,12 "></polygon> <polygon class="" style="opacity: 1;fill: #d7c49a;" points="-4,12 -4,24 800,198 1604,24 1604,11.833 800,198 "></polygon></svg>
+    <div id="grad1"></div>
+    
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
