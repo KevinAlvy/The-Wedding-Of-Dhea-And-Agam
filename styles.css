@@ -103,6 +103,10 @@ body {
     background: #4c4949; 
 }
 
+.nama {
+  text-transform: capitalize;
+}
+
 .additional-content {
     display: none;
 }
