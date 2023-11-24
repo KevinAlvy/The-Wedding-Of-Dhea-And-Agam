@@ -408,6 +408,10 @@ img {
     padding-bottom: 5%;
 }
 
+.acara h1{
+  font-family: 'Dancing Script', cursive;
+}
+
 .acara h2{
     font-size: 12px;
 }
@@ -430,6 +434,10 @@ img {
     width: 80%;
     border-radius: 10px;
     overflow: hidden;
+}
+
+.tanggal h1{
+  font-family: 'Dancing Script', cursive;
 }
 
 .tanggal h2{
