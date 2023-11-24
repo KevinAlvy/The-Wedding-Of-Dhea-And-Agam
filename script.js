@@ -58,7 +58,7 @@ function startSlideshow() {
 }
 
 // Tanggal pernikahan
-var weddingDate = new Date("December 3, 2023 00:00:00").getTime();
+var weddingDate = new Date("December 3, 2023 09:00:00").getTime();
 
 // Memperbarui waktu mundur setiap detik
 var countdownInterval = setInterval(function () {
@@ -108,7 +108,7 @@ function createReminder() {
     const eventDetails = {
       text: 'The Wedding of Dhea & Agam',
       details: 'Akad & Resepsi',
-      dates: '20231203T080000/20231203T230000',
+      dates: '20231203T090000/20231203T230000',
     };
   
     const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${encodeURIComponent(eventDetails.text)}&details=${encodeURIComponent(eventDetails.details)}&dates=${encodeURIComponent(eventDetails.dates)}`;
